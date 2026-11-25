@@ -18,6 +18,18 @@
 
 ---
 
+
+### Current Milestone 1 team branches
+
+| Member | Branch |
+| --- | --- |
+| Member 1 — Mariam | `feature/m01-mariam-foundation` |
+| Member 2 — Fatma | `feature/m01-fatma-data` |
+| Member 3 — Fatima | `feature/m01-fatima-analysis` |
+| Member 4 — Habiba | `feature/m01-habiba-segmentation` |
+
+Use these named branches. Earlier role-only branches are retained as unused starter references.
+
 ## 2. Step-by-Step Git Commands for Team Members
 
 ### 2.1 One-Time Clone & Identity Configuration
@@ -95,7 +107,7 @@ git push origin m1-topic-settled
 
 | Issue ID | Title | Assignee | Req Ref | Dependencies | Acceptance Criteria & Evidence | Labels |
 | :--- | :--- | :---: | :---: | :--- | :--- | :--- |
-| **#5** | Execute `validate_dataset.py` on MSPS & generate 70/30 splits (`seed=42`) | M2 | REQ-03, REQ-04, REQ-10 | #2 | `validation_report.json` logged; `dev_manifest.csv` & `test_manifest.csv` non-overlapping; `test_data.py` passes. | `milestone:m2`, `data` |
+| **#5** | Execute `validate_dataset.py` on MSPS & preserve and verify official development/test split | M2 | REQ-03, REQ-04, REQ-10 | #2 | `validation_report.json` logged; `dev_manifest.csv` & `test_manifest.csv` non-overlapping; `test_data.py` passes. | `milestone:m2`, `data` |
 | **#6** | Implement `src/metrics.py`, `tests/test_metrics.py` & baseline runner | M1 | REQ-15, REQ-16, REQ-17 | #1, #5 | Hand-worked 4x4 checks + empty-mask/`MSE=0` tests pass; `evaluate.py` logs 16 columns. | `milestone:m2`, `metrics`, `numpy` |
 | **#7** | Complete Dev-set EDA: histograms, FFT spectra, resolution & quantization | M3 | REQ-05, REQ-06, REQ-07 | #3, #5 | `01_image_analysis.ipynb` executed on Dev split; `256->4` quantization curve & Findings->Design table saved. | `milestone:m2`, `analysis` |
 | **#8** | Implement & benchmark pure Baseline 0 (`raw < 127`) and Baseline 1 | M4 | REQ-08, REQ-15 | #4, #5, #6 | NumPy Otsu matches `cv2.THRESH_OTSU`; `EXP-M2-001` & `EXP-M2-002` logged; failure montage saved. | `milestone:m2`, `baselines`, `numpy` |
