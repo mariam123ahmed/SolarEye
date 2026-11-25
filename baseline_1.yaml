@@ -1,0 +1,22 @@
+# SolarEye Baseline 1 Configuration (Milestone 2)
+# Otsu thresholding (dark-defect polarity) + single 3x3 morphological opening
+run_id: "EXP-M2-B1"
+milestone: "M2"
+pipeline: "baseline_1"
+random_seed: 42
+dark_defects: true
+mask_values: [0, 1]
+border_mode: "reflect"
+dataset:
+  manifest: "data/splits/dev_manifest.csv"
+  grayscale: true
+  target_size: null
+noise:
+  type: "clean"
+  params: {}
+segmentation:
+  method: "otsu_numpy"
+morphology:
+  enabled: true
+  opening_ksize: 3
+  opening_shape: "rect"

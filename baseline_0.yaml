@@ -1,0 +1,21 @@
+# SolarEye Baseline 0 Configuration (Milestone 2)
+# Strictly pure fixed global thresholding on raw uint8 grayscale (NO tuning/filtering)
+run_id: "EXP-M2-B0"
+milestone: "M2"
+pipeline: "baseline_0"
+random_seed: 42
+dark_defects: true
+mask_values: [0, 1]
+border_mode: "reflect"
+dataset:
+  manifest: "data/splits/dev_manifest.csv"
+  grayscale: true
+  target_size: null
+noise:
+  type: "clean"
+  params: {}
+segmentation:
+  method: "fixed_threshold"
+  threshold: 127
+morphology:
+  enabled: false

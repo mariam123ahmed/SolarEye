@@ -1,0 +1,15 @@
+# SolarEye Dataset & Split Configuration (Milestone 1/2)
+dataset_name: "msps"
+source_doi: "10.5281/zenodo.21549573"
+raw_dir: "data/raw/msps"
+splits_dir: "data/splits"
+dev_manifest: "data/splits/dev_manifest.csv"
+test_manifest: "data/splits/test_manifest.csv"
+preserve_official_split: true
+test_ratio: 0.30
+random_seed: 42
+grayscale: true
+target_size: null
+dark_defects: true
+mask_values: [0, 1]
+border_mode: "reflect"
