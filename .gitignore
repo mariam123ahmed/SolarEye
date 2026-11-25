@@ -1,0 +1,45 @@
+# Raw & processed datasets (never commit 360+ MB MSPS archives)
+data/raw/
+data/processed/
+data/validation_report.json
+data/validation_report.md
+*.zip
+*.tar
+*.tar.gz
+*.7z
+
+# Python caches & virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+
+# Experiment outputs & large generated artifacts
+experiments/results/*
+!experiments/results/.gitkeep
+experiments/figures/*
+!experiments/figures/.gitkeep
+outputs/
+*.png
+*.jpg
+*.tif
+!docs/**/*.png
+!report/**/*.png
+
+# Jupyter & IDE files
+.ipynb_checkpoints/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Allow selected small reproducible Phase 1 evidence (not raw data)
+!data/validation_report.json
+!experiments/results/*.csv
+!experiments/figures/eda_*.png
+!experiments/figures/baseline_*.png
