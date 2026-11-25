@@ -13,10 +13,14 @@ Primary metric: IoU. Baselines: raw grayscale threshold 127 and Otsu plus one 3x
 Team size of four is pending instructor approval.
 
 ## Ownership
-- Member 1: metrics, configuration, integration, pipeline.py, evaluation and Colab.
-- Member 2: dataset validation, data loader, manifests, noise generation.
-- Member 3: image analysis, EDA figures and tables.
-- Member 4: segmentation, morphology, baseline algorithm tests.
+| Member | Role | Ownership | Milestone 1 branch |
+| --- | --- | --- | --- |
+| Mariam (Member 1) | Team Leader | Metrics, configuration, integration, pipeline.py, evaluation and Colab | `feature/m01-mariam-foundation` |
+| Fatma (Member 2) | Data Engineer | Dataset validation, data loader, manifests and noise generation | `feature/m01-fatma-data` |
+| Fatima (Member 3) | Image Analysis Engineer | Image analysis, EDA figures and tables | `feature/m01-fatima-analysis` |
+| Habiba (Member 4) | Segmentation Engineer | Segmentation, morphology and baseline algorithm tests | `feature/m01-habiba-segmentation` |
+
+Use the named branches for current Milestone 1 work. The earlier role-based branches are retained as unused starter references. Every member must contribute and review genuine work.
 
 Use only development data for analysis and tuning. Keep test data held out. Do not commit raw data or ZIP files. Add CI after the first real tests are merged; the full suite runs at the Phase 1 integration gate.
 
