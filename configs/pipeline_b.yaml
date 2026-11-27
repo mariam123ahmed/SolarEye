@@ -1,0 +1,30 @@
+# SolarEye Pipeline B Configuration Template (Planned for Milestone 3)
+# Pipeline B: Noise removal (spatial/frequency) -> Adaptive or edge-based segmentation
+run_id: "EXP-M3-PB"
+milestone: "M3"
+pipeline: "pipeline_b"
+random_seed: 42
+dark_defects: true
+mask_values: [0, 1]
+border_mode: "reflect"
+dataset:
+  manifest: "data/splits/dev_manifest.csv"
+  grayscale: true
+  target_size: null
+noise:
+  type: "clean"
+  params: {}
+restoration:
+  method: "median"
+  ksize: 3
+frequency:
+  enabled: false
+  method: "butterworth_lp"
+  cutoff: 45.0
+  order: 2
+segmentation:
+  method: "adaptive"
+  block_size: 31
+  c_offset: 8.0
+morphology:
+  enabled: false
