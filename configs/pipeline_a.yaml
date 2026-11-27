@@ -1,0 +1,26 @@
+# SolarEye Pipeline A Configuration Template (Planned for Milestone 3)
+# Pipeline A: Spatial enhancement -> Global or Otsu thresholding
+run_id: "EXP-M3-PA"
+milestone: "M3"
+pipeline: "pipeline_a"
+random_seed: 42
+dark_defects: true
+mask_values: [0, 1]
+border_mode: "reflect"
+dataset:
+  manifest: "data/splits/dev_manifest.csv"
+  grayscale: true
+  target_size: null
+noise:
+  type: "clean"
+  params: {}
+enhancement:
+  method: "clahe"
+  clip_limit: 2.0
+  tile_grid_size: [8, 8]
+  gamma: 1.0
+segmentation:
+  method: "otsu_numpy"
+  threshold: 127
+morphology:
+  enabled: false
