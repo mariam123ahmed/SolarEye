@@ -4,9 +4,9 @@ Alamein International University. Classical EL photovoltaic defect segmentation 
 
 ## Phase 1 — Milestones 1 and 2
 
-AI-assisted reference implementation and archived experimental evidence. Team review, independent implementation/adaptation, peer review and instructor approval of the four-member team remain required. M3 pipelines A/B/C are interface stubs, not implemented in this checkpoint.
+AI-assisted reference implementation and archived experimental evidence. Team review, independent implementation/adaptation, peer review and instructor approval of the four-member team remain required. This checkpoint covers the two required baselines only.
 
-Dataset: MSPS, https://zenodo.org/records/21549573 (CC BY 4.0). Official split recorded in the local reference: 1,004 development and 503 held-out test. Primary metric: IoU. See `docs/PROJECT_FOUNDATION.md`, `docs/DATASET_VALIDATION.md` and `docs/M1_M2_CHECKPOINT.md`.
+Dataset: MSPS, https://zenodo.org/records/21549573 (CC BY 4.0). Official split recorded in the local reference: 1,004 development and 503 held-out test. Primary metric: IoU. See `docs/PROJECT_FOUNDATION.md`, `docs/DATASET_VALIDATION.md`.
 
 | Method | Archived development mean IoU |
 |---|---:|
@@ -24,18 +24,17 @@ python data/download_dataset.py --dataset msps --out_dir data/raw/msps
 python data/validate_dataset.py --data_dir data/raw/msps --out_report data/validation_report.json
 python -m src.run_pipeline --config configs/baseline_0.yaml --manifest data/splits/dev_manifest.csv --evaluate
 python -m src.run_pipeline --config configs/baseline_1.yaml --manifest data/splits/dev_manifest.csv --evaluate
-python -m streamlit run app/streamlit_app.py
 ```
 
-Use `notebooks/00_SolarEye_Phase1_Colab.ipynb` for integrated verification and `notebooks/01_image_analysis.ipynb` for development-only EDA. Raw data must not be committed. The test manifest is for final evaluation only. The ten skipped unit tests in the local reference are planned M3 implementations, not completed tests.
+Use `notebooks/00_SolarEye_Phase1_Colab.ipynb` for integrated verification and `notebooks/01_image_analysis.ipynb` for development-only EDA. Raw data must not be committed. The test manifest is for final evaluation only.
 
 ## Ownership
 
 | Member | Role | Branch |
 | --- | --- | --- |
-| Mariam | Metrics, configuration, integration, evaluation and demo | `feature/m01-mariam-foundation` |
-| Fatma | Dataset, loader, noise, validation and future restoration/frequency interfaces | `feature/m01-fatma-data` |
-| Fatima | Image analysis and future enhancement interfaces | `feature/m01-fatima-analysis` |
+| Mariam | Metrics, configuration, integration and evaluation | `feature/m01-mariam-foundation` |
+| Fatma | Dataset, loader, validation and split | `feature/m01-fatma-data` |
+| Fatima | Image analysis | `feature/m01-fatima-analysis` |
 | Habiba | Segmentation, morphology and baseline algorithm tests | `feature/m01-habiba-segmentation` |
 
 Every member reviews and adapts their assigned files, runs tests, documents AI assistance, commits genuine work on a feature branch and requests peer review before merging. Do not overwrite another member's contributions. The current integration PR alone does not establish a passing complete GitHub checkout.
