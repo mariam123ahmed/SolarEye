@@ -1,0 +1,45 @@
+# SolarEye Pipeline C Configuration Template (Planned for Milestone 3/4)
+# Pipeline C: Enhancement + restoration -> Segmentation -> Morphology -> Quantification
+run_id: "EXP-M3-PC"
+milestone: "M3"
+pipeline: "pipeline_c"
+random_seed: 42
+dark_defects: true
+mask_values: [0, 1]
+border_mode: "reflect"
+dataset:
+  manifest: "data/splits/dev_manifest.csv"
+  grayscale: true
+  target_size: null
+noise:
+  type: "clean"
+  params: {}
+restoration:
+  method: "bilateral"
+  d: 5
+  sigma_color: 25.0
+  sigma_space: 5.0
+frequency:
+  enabled: true
+  method: "homomorphic"
+  gamma_low: 0.6
+  gamma_high: 1.4
+  cutoff: 30.0
+enhancement:
+  method: "clahe"
+  clip_limit: 2.0
+  tile_grid_size: [8, 8]
+segmentation:
+  method: "sauvola"
+  window_size: 25
+  k: 0.2
+morphology:
+  enabled: true
+  open_ksize: 3
+  close_ksize: 3
+  shape: "rect"
+  min_area_px: 15
+quantification:
+  connectivity: 8
+  area_warning_pct: 2.0
+  count_warning: 3
