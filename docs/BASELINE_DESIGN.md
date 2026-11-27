@@ -1,0 +1,3 @@
+# M1 — Baseline design
+
+AI-assisted draft for Habiba's review. Baseline 0: raw grayscale uint8, foreground if intensity <127, no preprocessing or refinement. Baseline 1: NumPy Otsu threshold, dark foreground, exactly one rectangular 3×3 opening (erosion followed by dilation). Binary masks use uint8 {0,1}. Check boundary behavior and threshold ties against the implementation. Keep both baselines fixed and report IoU on the same development manifest. The dark background, cell gaps and busbars can cause false positives; report these as findings, not reasons to modify the benchmark. M3 detector and morphology extensions remain planned.
