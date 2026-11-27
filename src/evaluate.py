@@ -1,10 +1,4 @@
-"""Batch evaluation, experiment logging, and failure analysis (M2/M4).
-
-Owners: Member 1 (Evaluation & Logger) and Member 4 (Failure Analysis).
-Implements Milestone 2 experiment logging, split evaluation, per-image
-metrics CSV export, and side-by-side comparison figure rendering.
-Milestone 4 failure taxonomy (`>=20` worst test cases) remains planned.
-"""
+"""Milestone 2 development baseline evaluation and experiment logging."""
 
 from __future__ import annotations
 
@@ -266,25 +260,3 @@ def evaluate_manifest(
             log_csv=log_csv,
         )
     return summary
-
-
-def run_failure_analysis(
-    per_image_csv: str | Path,
-    out_dir: str | Path,
-    top_k: int = 20,
-) -> list[dict[str, Any]]:
-    """Select and group the `top_k` worst IoU cases for failure taxonomy."""
-    raise NotImplementedError(
-        "Planned for Milestone 4 — assigned to Member 4. "
-        "TODO(M4): Sort test results ascending by IoU and categorize."
-    )
-
-
-def summarize_stage_runtimes(
-    stage_timings: list[dict[str, float]],
-) -> dict[str, float]:
-    """Aggregate per-stage mean and total CPU runtime across a split."""
-    raise NotImplementedError(
-        "Planned for Milestone 4 — assigned to Member 1. "
-        "TODO(M4): Verify total batch runtime remains well under 10 min CPU."
-    )
