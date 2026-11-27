@@ -1,9 +1,4 @@
-"""End-to-end SolarEye classical DIP pipeline orchestration (M2/M3).
-
-Owner: Member 1 (Tech Lead, Integration & Metrics).
-Implements Milestone 2 Baselines 0 and 1 cleanly and keeps Milestone 3
-Pipelines A, B, and C separated as planned future interfaces.
-"""
+"""Milestone 2 orchestration of the two required classical baselines."""
 
 from __future__ import annotations
 
@@ -88,39 +83,6 @@ def run_baseline_1(
     }
 
 
-def run_pipeline_a(
-    image: np.ndarray,
-    config: dict[str, Any],
-) -> dict[str, Any]:
-    """Pipeline A: Spatial enhancement -> Global or Otsu thresholding."""
-    raise NotImplementedError(
-        "Planned for Milestone 3 — assigned to Member 1. "
-        "TODO(M3): Compose src.enhancement + src.segmentation per config."
-    )
-
-
-def run_pipeline_b(
-    image: np.ndarray,
-    config: dict[str, Any],
-) -> dict[str, Any]:
-    """Pipeline B: Spatial/frequency restoration -> Adaptive/edge segmentation."""
-    raise NotImplementedError(
-        "Planned for Milestone 3 — assigned to Member 1. "
-        "TODO(M3): Compose src.restoration/src.frequency + src.segmentation."
-    )
-
-
-def run_pipeline_c(
-    image: np.ndarray,
-    config: dict[str, Any],
-) -> dict[str, Any]:
-    """Pipeline C: Enhancement + restoration -> Segmentation -> Morphology."""
-    raise NotImplementedError(
-        "Planned for Milestone 3 — assigned to Member 1. "
-        "TODO(M3): Compose full classical DIP stages and quantification."
-    )
-
-
 def run_single_image(
     image: np.ndarray,
     cfg: dict[str, Any],
@@ -138,10 +100,4 @@ def run_single_image(
         return run_baseline_1(
             image, opening_size=ksize, opening_shape=shape, dark_defects=dark
         )
-    if name == "pipeline_a":
-        return run_pipeline_a(image, cfg)
-    if name == "pipeline_b":
-        return run_pipeline_b(image, cfg)
-    if name == "pipeline_c":
-        return run_pipeline_c(image, cfg)
     raise ValueError(f"Unsupported pipeline name in config: '{name}'.")
